@@ -3,7 +3,7 @@ echo "Создание структуры..."
 mkdir webapp_lab1_7
 cd webapp_lab1_7
 mkdir static templates
-touch app.py utils.py config.py forms.py requirements.txt .env.example .gitignore static/style.css templates/index.html
+touch app.py utils.py config.py forms.py requirements.txt .env.example .gitignore static/style.css templates/index.html Procfile
 
 echo "Заполнение файлов..."
 echo "-- Конфигурационные файлы..."
@@ -102,6 +102,7 @@ Flask==3.1.3
 Flask-Session==0.8.0
 Flask-WTF==1.3.0
 fonttools==4.63.0
+gunicorn==26.0.0
 idna==3.18
 itsdangerous==2.2.0
 Jinja2==3.1.6
@@ -120,6 +121,7 @@ urllib3==2.7.0
 Werkzeug==3.1.8
 WTForms==3.2.2
 EOF
+echo > Procfile "web: gunicorn app:app"
 
 echo "-- Код приложения..."
 
