@@ -6,6 +6,7 @@ env/
 # Статические файлы
 static/
 flask_session/
+!static/style.css
 
 # Кэш Python
 __pycache__/
