@@ -1,0 +1,31 @@
+# Виртуальное окружение
+venv/
+env/
+.venv/
+
+# Статические файлы
+static/*
+flask_session/
+!static/style.css
+
+# Кэш Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Файлы IDE
+.vscode/
+.idea/
+tempCodeRunnerFile*
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+
+# Файлы с секретами
+.env
+*.log
+
+# Базы данных
+*.db
+*.sqlite3

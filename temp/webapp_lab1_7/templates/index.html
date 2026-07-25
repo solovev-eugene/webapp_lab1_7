@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>RGB-редактор изображения</h1>
+    {% if not image.src %}
+        <form method="post" enctype="multipart/form-data">
+            {{ form.recaptcha }}
+            {{ form.hidden_tag() }}
+            {{ form.image }}
+            {{ form.submit }}
+        </form>
+    {% else %}
+        <form method="post">
+            {{ form.hidden_tag() }}
+            {{ form.mode }}
+            {{ form.submit_mode }}
+        </form>
+        <img src="{{ image.src }}" title='{{ image.title }}' alt="{{ image.description }}">
+        <img src="{{ histogram.src }}" title='{{ histogram.title }}' alt="{{ histogram.description }}">
+        <img src="{{ diagram.src }}" title='{{ diagram.title }}' alt="{{ diagram.description }}">
+        <form action="{{ url_for('clear_session') }}" method="post">
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            <button type="submit">Очистить сессию</button>
+        </form>
+    {% endif %}
+    <!-- Flash сообщения -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-messages flash-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
