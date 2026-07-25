@@ -38,6 +38,8 @@ fi
 
 
 cat > .env.example << EOF
+PYTHON_VERSION=3.10.20
+
 # Сервер
 PORT=5000
 HOST=localhost
