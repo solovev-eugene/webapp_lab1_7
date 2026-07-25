@@ -1,0 +1,16 @@
+# Сервер
+PORT=5000
+HOST=localhost
+DEBUG=True
+
+# Настройки
+MAX_CONTENT_LENGTH=16777216
+ALLOWED_EXTENSIONS=png,jpg,jpeg,gif,webp,bmp
+OUTPUT_FORMAT=png
+
+# Секретный ключ
+SECRET_KEY=secret_key_12345
+
+# API ключи
+GOOGLE_RECAPTCHA_SITE_KEY=public_key_12345
+GOOGLE_RECAPTCHA_SECRET_KEY=secret_key_12345
